@@ -114,7 +114,7 @@ class NMClientMixin:
             )
 
         try:
-            (callback_type_dict[callback_type]["finish_function"])(result)
+            (callback_type_dict[callback_type]["finish_function"])(client, result)
             msg = "The connection profile \"{}\" has been {}.".format(
                 conn_name,
                 callback_type_dict[callback_type]["msg"]
