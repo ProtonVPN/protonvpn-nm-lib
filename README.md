@@ -44,7 +44,7 @@ If you would like to run the the CLI from within a virtual environment (for eith
 # How to use:
 
 ### Import
-``` from protonvpn.api import protonvpn ```
+``` from protonvpn_nm_lib.api import protonvpn ```
 
 <br>
 
