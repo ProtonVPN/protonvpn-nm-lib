@@ -110,6 +110,7 @@ class IPv6LeakProtection:
             IPv6_LEAK_PROTECTION_CONN_NAME
         ).split(" ")
 
+        self.update_connection_status()
         if self.interface_state_tracker[self.conn_name][
             KillSwitchInterfaceTrackerEnum.EXISTS
         ]:

@@ -1,5 +1,5 @@
 %define unmangled_name protonvpn-nm-lib
-%define version 3.3.1
+%define version 3.3.2
 %define release 1
 
 Prefix: %{_prefix}
@@ -58,6 +58,9 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %changelog
+* Wed Jun 23 2021 Proton Technologies AG <opensource@proton.me> 3.3.2-1
+- Remove IPv6 leak protection when there is no VPN and Kill Switch is disabled
+
 * Tue Jun 22 2021 Proton Technologies AG <opensource@proton.me> 3.3.1-1
 - Hotfix: Force disable connectivity check
 
@@ -111,7 +114,7 @@ rm -rf $RPM_BUILD_ROOT
 * Thu Feb 25 2021 Proton Technologies AG <opensource@proton.me> 0.5.0-2
 - Refactor library
 - Create public API
-- Improved library overall stability 
+- Improved library overall stability
 - Implement subprocess wrapper
 
 * Wed Feb 24 2021 Proton Technologies AG <opensource@proton.me> 0.4.2-1

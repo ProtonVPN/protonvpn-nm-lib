@@ -93,8 +93,19 @@ class Settings(SettingsBackend):
         Args:
             killswitch_enum (KillswitchStatusEnum)
         """
+        _env = ExecutionEnvironment()
         try:
-            ExecutionEnvironment().killswitch.update_from_user_configuration_menu( # noqa
+            if (
+                not _env.connection_backend.get_active_protonvpn_connection()
+                and killswitch_enum == KillswitchStatusEnum.DISABLED
+            ):
+                _env.ipv6leak.remove_leak_protection()
+        except (exceptions.ProtonVPNException, Exception) as e:
+            logger.exception(e)
+            raise Exception(e)
+
+        try:
+            _env.killswitch.update_from_user_configuration_menu( # noqa
                 killswitch_enum
             )
         except exceptions.DisableConnectivityCheckError as e:

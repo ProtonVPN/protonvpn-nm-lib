@@ -1,3 +1,9 @@
+protonvpn-nm-lib (3.3.2-1) unstable; urgency=medium
+
+  * Remove IPv6 leak protection when there is no VPN and Kill Switch is disabled
+
+ -- Proton Technologies AG <opensource@proton.me>  Wed, 23 Jun 2021 16:45:00 +0100
+
 protonvpn-nm-lib (3.3.1-1) unstable; urgency=medium
 
   * Hotfix: Force disable connectivity check
@@ -16,13 +22,13 @@ protonvpn-nm-lib (3.2.2-11) unstable; urgency=medium
   * Improve: VPN reconnector after suspend
 
  -- Proton Technologies AG <opensource@proton.me>  Tue, 8 Jun 2021 16:45:00 +0100
- 
+
 protonvpn-nm-lib (3.2.1-1) unstable; urgency=medium
 
   * Bugfix: Connect to re-configured Secure Core servers
 
  -- Proton Technologies AG <opensource@proton.me>  Fri, 4 Jun 2021 11:00:00 +0100
- 
+
 protonvpn-nm-lib (3.2.0-5) unstable; urgency=medium
 
   * Cache all necessary data after successfull authentication
@@ -49,7 +55,7 @@ protonvpn-nm-lib (3.1.3-1) unstable; urgency=medium
   * Exclude servers with TOR feature when getting fastest server
 
  -- Proton Technologies AG <opensource@proton.me>  Tue, 04 May 2021 11:00:00 +0100
- 
+
  protonvpn-nm-lib (3.1.1-2) unstable; urgency=medium
 
   * Add support for streaming and virtual locations
@@ -58,19 +64,19 @@ protonvpn-nm-lib (3.1.3-1) unstable; urgency=medium
   * Update incorrect dependency version for python3-proton-client
 
  -- Proton Technologies AG <opensource@proton.me>  Fri, 30 Apr 2021 12:00:00 +0100
- 
+
  protonvpn-nm-lib (3.0.0-1) unstable; urgency=medium
 
   * Treat server features as bitmaps
 
  -- Proton Technologies AG <opensource@proton.me>  Fri, 16 Apr 2021 13:30:00 +0100
- 
+
  protonvpn-nm-lib (0.5.2-1) unstable; urgency=medium
 
   * Cache servers and client configurations upon login
 
  -- Proton Technologies AG <opensource@proton.me>  Thu, 15 Apr 2021 18:30:00 +0100
- 
+
  protonvpn-nm-lib (0.5.1-5) unstable; urgency=medium
 
   * Improve reconnection logic when computer goes to sleep or there is no internet connectivity
@@ -93,7 +99,7 @@ protonvpn-nm-core (0.5.0-2) unstable; urgency=medium
   * Implement subprocess wrapper
 
  -- Proton Technologies AG <opensource@proton.me>  Thu, 25 Feb 2021 13:00:00 +0000
- 
+
 protonvpn-nm-core (0.4.2-1) unstable; urgency=low
 
   * Fix bug when connecting to P2P, Secure-Core and TOR due to incorrect subject name for TLS authentication
@@ -192,7 +198,7 @@ protonvpn-nm-core (0.0.6-1) unstable; urgency=low
 protonvpn-nm-core (0.0.5-1) unstable; urgency=low
 
   * Implement IPv6 leak protection
-  * Implement DNS management 
+  * Implement DNS management
   * Implement Killswitchmanagement
   * Changed OpenVPN default protocol to UDP
   * Fix crash when attempting to load server for PMTEAM
