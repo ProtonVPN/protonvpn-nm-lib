@@ -73,9 +73,9 @@ If you would like to run the the CLI from within a virtual environment (for eith
 |:------------------------------------------------|:----------------------------------------------------------------------------------------------------------------|
 | `protonvpn.login(username, password)` | Login with your Proton credentials. |
 | `protonvpn.logout()` | Logout user and delete current user session. |
-| `protonvpn.setup_connection(connection_type, connection_type_extra_arg, protocol)` | Setup and configure VPN connection prior calling protonvpn.connect(). |
+| `protonvpn.setup_connection(connection_type, connection_type_extra_arg, protocol)` | Setup and configure VPN connection prior to calling protonvpn.connect(). |
 | `protonvpn.setup_reconnect()` | Setup and configure VPN connection to a previously connected server. Should be called before calling protonvpn.connect(). |
-| `protonvpn.connect()` | Should be user either after protonvpn.setup_connection() protonvpn.setup_reconnect(). |
+| `protonvpn.connect()` | Should be used either after protonvpn.setup_connection() protonvpn.setup_reconnect(). |
 | `protonvpn.disconnect()` | Disconnect from ProtonVPN. |
 | `protonvpn.check_session_exists()` | Check if sessions exists. |
 | `protonvpn.get_connection_status()` | Get active connection status. |
@@ -85,4 +85,4 @@ If you would like to run the the CLI from within a virtual environment (for eith
 | `protonvpn.get_connection_metadata()` | Get metadata of an active ProtonVPN connection. |
 | `protonvpn.get_non_active_protonvpn_connection()` | Get non active ProtonVPN connection. |
 | `protonvpn.get_active_protonvpn_connection()` | Get active ProtonVPN connection. |
-| `protonvpn.ensure_connectivity()` | Ensure that there is internet connection. |
+| `protonvpn.ensure_connectivity()` | Ensure that there is an internet connection. |
