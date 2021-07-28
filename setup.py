@@ -2,7 +2,7 @@
 
 from setuptools import find_packages, setup
 
-from protonvpn_nm_lib.constants import APP_VERSION
+from protonvpn_nm_lib.version import APP_VERSION
 
 long_description = """
 ProtonVPN NetworkManager library for Linux clients.
@@ -17,8 +17,13 @@ setup(
     author_email="contact@protonvpn.com",
     long_description=long_description,
     install_requires=[
-        "proton-client~=0.5.0", "pyxdg", "keyring",
-        "PyGObject", "Jinja2", "distro"
+        "dbus-python",
+        "distro",
+        "Jinja2",
+        "keyring",
+        "PyGObject",
+        "pyxdg",
+        "proton-client~=0.5.0",
     ],
     include_package_data=True,
     license="GPLv3",
