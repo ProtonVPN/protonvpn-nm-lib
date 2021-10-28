@@ -1,23 +1,25 @@
 %define unmangled_name protonvpn-nm-lib
 %define version 3.6.1
-%define release 1
+%define release 2
 
 Prefix: %{_prefix}
 
 Name: python3-protonvpn-nm-lib
 Version: %{version}
-Release: %{release}
+Release: %{release}%{?dist}
 Summary: Official ProtonVPN NetworkManager library
 
 Group: ProtonVPN
 License: GPLv3
-Url: https://github.com/ProtonVPN/
 Vendor: Proton Technologies AG <opensource@proton.me>
-Source0: %{unmangled_name}-%{version}.tar.gz
+URL: https://github.com/ProtonVPN/%{unmangled_name}
+Source0: %{url}/archive/refs/tags/%{version}.tar.gz
 BuildArch: noarch
 BuildRoot: %{_tmppath}/%{unmangled_name}-%{version}-%{release}-buildroot
 
 BuildRequires: python3-devel
+BuildRequires: python3-pip
+BuildRequires: python3-pyxdg
 BuildRequires: python3-setuptools
 Requires: libsecret
 Requires: dbus-x11
@@ -51,8 +53,6 @@ python3 setup.py build
 %install
 python3 setup.py install --single-version-externally-managed -O1 --root=$RPM_BUILD_ROOT --record=INSTALLED_FILES
 
-%clean
-rm -rf $RPM_BUILD_ROOT
 
 %files -f INSTALLED_FILES
 %{python3_sitelib}/protonvpn_nm_lib/
@@ -60,6 +60,10 @@ rm -rf $RPM_BUILD_ROOT
 %defattr(-,root,root)
 
 %changelog
+* Thu Nov 04 2021 Justin W. Flory <jflory7@fedoraproject.org> - 3.6.1-2
+- Improve: Greater conformity to Fedora Linux Packaging Guidelines for Python
+  https://docs.fedoraproject.org/en-US/packaging-guidelines/Python/
+
 * Tue Nov 02 2021 Proton Technologies AG <opensource@proton.me> 3.6.1-1
 - Hotfix: Update event notifications
 
@@ -73,8 +77,8 @@ rm -rf $RPM_BUILD_ROOT
 - Fix: Wake on suspend has now an additional check to ensure that the reconnector kicks in only when the session is unlocked
 
 * Tue Jul 06 2021 Proton Technologies AG <opensource@proton.me> 3.4.1-3
-- More often update server maintenance status 
-- Feature: Alternative routing 
+- More often update server maintenance status
+- Feature: Alternative routing
 - Fix: Logs should be using UTC time
 - Fix: Add missing dependency
 
