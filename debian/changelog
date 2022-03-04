@@ -1,4 +1,4 @@
-protonvpn-nm-lib (3.8.0-5) unstable; urgency=medium
+protonvpn-nm-lib (3.8.0-6) unstable; urgency=medium
 
   * Improve: Server list
   * Improve: Rename exception

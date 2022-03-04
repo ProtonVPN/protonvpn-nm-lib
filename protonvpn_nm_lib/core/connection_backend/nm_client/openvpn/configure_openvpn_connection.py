@@ -90,7 +90,7 @@ class ConfigureOpenVPNConnection:
 
         # append non standard ports (aka safe mode) suffix
         if self.__env.api_session.clientconfig.features.safe_mode:
-            if self.__env.settings.non_standard_ports == UserSettingStatusEnum.DISABLED:
+            if self.__env.settings.non_standard_ports == UserSettingStatusEnum.ENABLED:
                 self.username = self.username + "+nsm"
             else:
                 self.username = self.username + "+sm"

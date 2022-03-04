@@ -1,7 +1,7 @@
 # Maintainer: Proton Technologies AG <opensource@proton.me>
 pkgname=python-protonvpn-nm-lib
 pkgver=3.8.0
-pkgrel=5
+pkgrel=6
 pkgdesc="Official ProtonVPN NetworkManager library."
 arch=("any")
 url="https://github.com/ProtonVPN"
