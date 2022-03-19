@@ -35,7 +35,6 @@ RUN dnf install -y net-tools \
     polkit
 
 RUN dnf install -y \
-    python3-pyxdg \
     python3-dbus \
     python3-keyring \
     python3-distro \

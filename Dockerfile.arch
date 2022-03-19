@@ -27,7 +27,6 @@ RUN pacman -Syu --noconfirm \
     # gobject-introspection \
     # pkgconf \
     libsecret \
-    python-pyxdg \
     python-keyring \
     python-distro \
     python-jinja \

@@ -1,6 +1,5 @@
 # Call with pip install -r requirements.txt
 proton-client
-pyxdg
 keyring
 PyGObject
 Jinja2

@@ -30,7 +30,6 @@ RUN apt-get install -y net-tools \
     libcairo2-dev
 
 RUN apt-get install -y \
-    python3-xdg \
     python3-keyring \
     python3-distro \
     python3-jinja2 \

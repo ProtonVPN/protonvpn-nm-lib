@@ -15,7 +15,6 @@ python-gnupg = "*"
 pyopenssl = "*"
 
 [packages]
-pyxdg = "*"
 pythondialog = "*"
 jinja2 = "*"
 pygobject = "*"

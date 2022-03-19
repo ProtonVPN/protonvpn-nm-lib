@@ -17,8 +17,8 @@ setup(
     author_email="contact@protonvpn.com",
     long_description=long_description,
     install_requires=[
-        "proton-client", "pyxdg", "keyring",
-        "PyGObject", "Jinja2", "distro", "systemd-python"
+        "proton-client", "keyring", "PyGObject", "Jinja2", "distro",
+        "systemd-python"
     ],
     include_package_data=True,
     license="GPLv3",

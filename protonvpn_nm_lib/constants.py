@@ -5,8 +5,6 @@
 
 import os
 
-from xdg import BaseDirectory
-
 from .enums import (KillswitchStatusEnum, NetshieldStatusEnum,
                     NetshieldTranslationEnum, NotificationStatusEnum,
                     ProtocolEnum, ProtocolImplementationEnum,
@@ -85,8 +83,9 @@ NETSHIELD_STATUS_DICT = {
 }
 
 # Constant folders
-XDG_CACHE_HOME = BaseDirectory.xdg_cache_home
-XDG_CONFIG_HOME = BaseDirectory.xdg_config_home
+HOME = os.path.expanduser('~')
+XDG_CACHE_HOME = os.environ.get('XDG_CACHE_HOME') or os.path.join(HOME, '.cache')
+XDG_CONFIG_HOME = os.environ.get('XDG_CONFIG_HOME') or os.path.join(HOME, '.config')
 PWD = os.path.dirname(os.path.abspath(__file__))
 PROTON_XDG_CACHE_HOME = os.path.join(XDG_CACHE_HOME, "protonvpn")
 PROTON_XDG_CONFIG_HOME = os.path.join(XDG_CONFIG_HOME, "protonvpn")
