@@ -95,12 +95,12 @@ class BugReport(metaclass=Singleton):
 
                 # Skip entry if it's older then start date
                 try:
-                    if entry["_SOURCE_REALTIME_TIMESTAMP"] < start_date:
+                    if entry["_SOURCE_REALTIME_TIMESTAMP"].timestamp() < start_date.timestamp():
                         continue
 
                     edited_entry = self.__convert_time_to_utc(entry, "_SOURCE_REALTIME_TIMESTAMP")
                 except KeyError:
-                    if entry["__REALTIME_TIMESTAMP"] < start_date:
+                    if entry["__REALTIME_TIMESTAMP"].timestamp() < start_date.timestamp():
                         continue
 
                     edited_entry = self.__convert_time_to_utc(entry, "__REALTIME_TIMESTAMP")
