@@ -90,17 +90,18 @@ class BugReport(metaclass=Singleton):
         start_date = datetime.datetime.today() - datetime.timedelta(
             days=self.DELTA_TIME_IN_DAYS
         )
+        start_date_timestamp = start_date.timestamp()
         with open(filepath, "a") as f:
             for entry in journal:
 
                 # Skip entry if it's older then start date
                 try:
-                    if entry["_SOURCE_REALTIME_TIMESTAMP"].timestamp() < start_date.timestamp():
+                    if entry["_SOURCE_REALTIME_TIMESTAMP"].timestamp() < start_date_timestamp:
                         continue
 
                     edited_entry = self.__convert_time_to_utc(entry, "_SOURCE_REALTIME_TIMESTAMP")
                 except KeyError:
-                    if entry["__REALTIME_TIMESTAMP"].timestamp() < start_date.timestamp():
+                    if entry["__REALTIME_TIMESTAMP"].timestamp() < start_date_timestamp:
                         continue
 
                     edited_entry = self.__convert_time_to_utc(entry, "__REALTIME_TIMESTAMP")
