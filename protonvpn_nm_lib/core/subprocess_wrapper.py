@@ -18,7 +18,7 @@ class SubprocessWrapper:
         is effectivtly a layer on top of subprocess.
     """
 
-    _acceptable_binaries = {"nmcli", "systemctl", "clear", "xdg-open"}
+    _acceptable_binaries = {"nmcli", "clear", "xdg-open"}
     PIPE = _subprocess.PIPE
     STDOUT = _subprocess.STDOUT
     DEVNULL = _subprocess.DEVNULL
