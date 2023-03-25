@@ -114,7 +114,7 @@ class KeyringBackendLinux(KeyringBackend):
         is working correctly or not. If not then another backend should be tried instead.
 
         keyring.errors.InitError will be thrown if the backend system can not be initialized,
-        indicating that possibly it might be missconfigured.
+        indicating that possibly it might be misconfigured.
         """
         import keyring
         try:

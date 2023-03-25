@@ -19,9 +19,9 @@ class Status:
         """Get active connection status.
 
         Args:
-            readeable_format (bool):
-                If true then all content will be returnes in
-                human readeable format, else all content is returned in
+            readable_format (bool):
+                If true then all content will be returned in
+                human readable format, else all content is returned in
                 enum objects.
 
         Returns:

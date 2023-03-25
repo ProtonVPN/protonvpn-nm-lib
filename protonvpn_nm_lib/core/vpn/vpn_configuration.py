@@ -91,7 +91,7 @@ class VPNConfiguration(SubclassesMixin, metaclass=ABCMeta):
 
 
 class VPNConfigurationOpenVPN(VPNConfiguration):
-    """VPNConfiguation class.
+    """VPNConfiguration class.
 
     Generates VPN configuration that can be used to
     import via NM tool.

@@ -60,7 +60,7 @@ class ConnectionMetadata(ConnectionMetadataBackend):
         )
 
     def save_connect_time(self):
-        """Save connected time metdata."""
+        """Save connected time metadata."""
         metadata = self.get_connection_metadata(MetadataEnum.CONNECTION)
         metadata[ConnectionMetadataEnum.CONNECTED_TIME.value] = str(
             int(time.time())

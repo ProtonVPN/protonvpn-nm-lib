@@ -24,7 +24,7 @@ class ConnectionMetadataBackend(SubclassesMixin, metaclass=ABCMeta):
 
     @abstractmethod
     def save_connect_time():
-        """Save connected time metdata."""
+        """Save connected time metadata."""
 
     @abstractmethod
     def save_protocol():

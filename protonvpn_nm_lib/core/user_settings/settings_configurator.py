@@ -308,7 +308,7 @@ class SettingsConfigurator:
     def get_user_configurations(self):
         """Get user configurations from file. Reads from file.
 
-        If any keys missmatch, it will attempt to reset
+        If any keys mismatch, it will attempt to reset
         the configuration file to default values and re-read
         the values.
 
@@ -330,7 +330,7 @@ class SettingsConfigurator:
             return self.transform_dict_to_enum(json.load(f))
 
     def transform_dict_to_enum(self, json_data):
-        """Transform a user configrations data
+        """Transform user configuration data
         from json/dict to dict of enum objects.
 
         Args:
@@ -399,7 +399,7 @@ class SettingsConfigurator:
             json.dump(object, f, indent=4)
 
     def transform_enum_to_dict(self, json_data):
-        """Transform user configrations data
+        """Transform user configuration data
         from dict of enum objects to dict.
 
         Args:
