@@ -1,7 +1,7 @@
 import os
 import platform
 import subprocess as _subprocess
-
+from packaging import version
 
 class SubprocessWrapper:
     """Subprocess wrapper.
@@ -107,7 +107,7 @@ class SubprocessWrapper:
         args[0] = self._path_to_binaries[args[0]]
 
         # Python below 3.7.0 does not support capture_output
-        if platform.python_version() < "3.7.0":
+        if version.parse(platform.python_version()) < version.parse("3.7.0"):
             return _subprocess.run(
                 args, input=input, stdout=stdout,
                 stderr=stderr,
