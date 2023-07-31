@@ -1,3 +1,4 @@
+import subprocess
 from ..logger import logger
 from .. import exceptions
 import requests
@@ -22,19 +23,11 @@ class Utilities:
             logger.info("Skipping as killswitch is enabled")
             return
 
-        try:
-            requests.get(
-                "https://protonstatus.com/",
-                timeout=5,
-            )
-        except requests.exceptions.Timeout as e:
-            logger.exception("NetworkConnectionError: {}".format(e))
-            raise exceptions.NetworkConnectionError(
-                "No internet connection found, request timed out. "
-                "Please make sure you are connected and retry."
-            )
-        except (requests.exceptions.BaseHTTPError, Exception) as e:
-            logger.exception("NetworkConnectionError: {}".format(e))
+        # 192.0.2.1 is used because is a valid IP that won't be in use,
+        # since it is reserved for documentation purposes:
+        # https://www.rfc-editor.org/rfc/rfc5737.html
+        result = subprocess.run(["ip", "route", "get", "192.0.2.1"], check=False, capture_output=True)
+        if result.returncode != 0:
             raise exceptions.NetworkConnectionError(
                 "No internet connection. "
                 "Please make sure you are connected and retry."
