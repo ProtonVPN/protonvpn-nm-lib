@@ -1,5 +1,5 @@
 %define unmangled_name protonvpn-nm-lib
-%define version 3.14.0
+%define version 3.15.0
 %define release 1
 
 Prefix: %{_prefix}
@@ -60,6 +60,10 @@ python3 setup.py install --single-version-externally-managed -O1 --root=$RPM_BUI
 %defattr(-,root,root)
 
 %changelog
+* Mon Jul 31 2023 Proton Technologies AG <opensource@proton.me> 3.15.0-1
+- Fix: Fix issue with NM plugin not accepting params for newer openvpn version
+- See: https://gitlab.gnome.org/GNOME/NetworkManager-openvpn/-/issues/112
+
 * Tue Oct 18 2022 Proton Technologies AG <opensource@proton.me> 3.14.0-1
 - Fix: When vpn session is invalid, ensure that user is logged out
 

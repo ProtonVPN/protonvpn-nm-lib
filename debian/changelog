@@ -1,3 +1,10 @@
+protonvpn-nm-lib (3.15.0-1) unstable; urgency=medium
+
+  * Fix: Fix issue with NM plugin not accepting params for newer openvpn version
+  * See: https://gitlab.gnome.org/GNOME/NetworkManager-openvpn/-/issues/112
+
+ -- Proton Technologies AG <opensource@proton.me>  Mon, 31 Jul 2023 11:00:00 +0000
+
 protonvpn-nm-lib (3.14.0-1) unstable; urgency=medium
 
   * Fix: When vpn session is invalid and an api request is made, ensure that user is logged out
