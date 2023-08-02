@@ -209,7 +209,7 @@ class NetworkManagerUnitWrapper:
             active_conn_props = self.get_active_connection_properties(active_conn)
         except dbus_excp.DBusException as e:
             logger.error(
-                "Error occured while getting properties from active "
+                "Error occurred while getting properties from active "
                 + "connection: '{}'. Exception: {}.".format(active_conn, e)
             )
         else:

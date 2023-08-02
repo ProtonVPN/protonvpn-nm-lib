@@ -307,7 +307,7 @@ class IllegalVirtualDevice(ProtonVPNException):
 
 
 class IllegalVPNProtocol(ProtonVPNException):
-    """Unexpexted plugin for specified protocol."""
+    """Unexpected plugin for specified protocol."""
 
 
 class ProtocolPluginNotFound(ProtonVPNException):

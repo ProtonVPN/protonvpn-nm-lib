@@ -16,7 +16,7 @@ class IPv6LeakProtection:
     enable_ipv6_leak_protection = True
 
     # Additional loop needs to be create since SystemBus automatically
-    # picks the default loop, which is intialized with the CLI.
+    # picks the default loop, which is initialized with the CLI.
     # Thus, to refrain SystemBus from using the default loop,
     # one extra loop is needed only to be passed, while it is never used.
     # https://dbus.freedesktop.org/doc/dbus-python/tutorial.html#setting-up-an-event-loop
@@ -42,7 +42,7 @@ class IPv6LeakProtection:
             }
         }
         self.nm_wrapper = nm_wrapper(self.bus)
-        logger.info("Intialized IPv6 leak protection manager")
+        logger.info("Initialized IPv6 leak protection manager")
         self.get_status_connectivity_check()
 
     def manage(self, action):

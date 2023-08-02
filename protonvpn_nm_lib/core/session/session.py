@@ -51,7 +51,7 @@ class ErrorStrategy:
             raise InsecureConnection("TLS pinning failed, connection could be insecure")
         except UnknownConnectionError as e:
             logger.exception(e)
-            raise UnknownAPIError("Unknown API error occured")
+            raise UnknownAPIError("Unknown API error occurred")
 
         if not result:
             raise NetworkConnectionError("Unable to reach internet connectivity")
@@ -91,7 +91,7 @@ class ErrorStrategy:
 
     # Common handlers retries
     def _handle_429(self, error, session, *args, **kwargs):
-        logger.info("Catched 429 error, retrying new request if retry header present")
+        logger.info("Caught 429 error, retrying new request if retry header present")
 
         hold_request_time = error.headers.get("Retry-After")
         try:
@@ -106,12 +106,12 @@ class ErrorStrategy:
         return self._call_original_function(session, *args, **kwargs)
 
     def _handle_500(self, error, session, *args, **kwargs):
-        logger.info("Catched 500 error, raising exception")
+        logger.info("Caught 500 error, raising exception")
 
         raise UnreacheableAPIError(error)
 
     def _handle_503(self, error, session, *args, **kwargs):
-        logger.info("Catched 503 error, retrying new request if retry header present")
+        logger.info("Caught 503 error, retrying new request if retry header present")
 
         hold_request_time = error.headers.get("Retry-After")
         try:
@@ -126,19 +126,19 @@ class ErrorStrategy:
         return self._call_original_function(session, *args, **kwargs)
 
     def _handle_2011(self, error, session, *args, **kwargs):
-        logger.info("Catched 9001 error, generic error message: {}".format(error))
+        logger.info("Caught 9001 error, generic error message: {}".format(error))
         raise API2011Error(error)
 
     def _handle_9001(self, error, session, *args, **kwargs):
-        logger.info("Catched 9001 error, human verification required")
+        logger.info("Caught 9001 error, human verification required")
         raise API9001Error(error)
 
     def _handle_85031(self, error, session, *args, **kwargs):
-        logger.info("Catched 85031 error, too many recent login attempts")
+        logger.info("Caught 85031 error, too many recent login attempts")
         raise API85031Error(error)
 
     def _handle_12087(self, error, session, *args, **kwargs):
-        logger.info("Catched 12087 error, Invalid verification token")
+        logger.info("Caught 12087 error, Invalid verification token")
         raise API12087Error(error)
 
 
@@ -150,33 +150,33 @@ class ErrorStrategyLogout(ErrorStrategy):
 
 class ErrorStrategyNormalCall(ErrorStrategy):
     def _handle_401(self, error, session, *args, **kwargs):
-        logger.info("Catched 401 error, will refresh session and retry")
+        logger.info("Caught 401 error, will refresh session and retry")
         session.refresh()
         # Retry (without error handling this time)
         return self._call_without_error_handling(session, *args, **kwargs)
 
     def _handle_403(self, error, session, *args, **kwargs):
-        logger.info("Catched 403 error, missing scopes. Re-authentication needed.")
+        logger.info("Caught 403 error, missing scopes. Re-authentication needed.")
         raise API403Error(error)
 
     def _handle_5002(self, error, session, *args, **kwargs):
-        logger.info("Catched 5002 error, invalid version.")
+        logger.info("Caught 5002 error, invalid version.")
         raise API5002Error(error)
 
     def _handle_5003(self, error, session, *args, **kwargs):
-        logger.info("Catched 5003 error, bad version.")
+        logger.info("Caught 5003 error, bad version.")
         raise API5003Error(error)
 
     def _handle_10013(self, error, session, *args, **kwargs):
-        logger.info("Catched 10013 error, session invalid.")
+        logger.info("Caught 10013 error, session invalid.")
         raise API10013Error(error)
 
     def _handle_400(self, error, session, *args, **kwargs):
-        logger.info("Catched 400 error, session invalid.")
+        logger.info("Caught 400 error, session invalid.")
         raise APISessionIsNotValidError(error)
 
     def _handle_422(self, error, session, *args, **kwargs):
-        logger.info("Catched 422 error, session invalid.")
+        logger.info("Caught 422 error, session invalid.")
         raise APISessionIsNotValidError(error)
 
 
@@ -190,28 +190,28 @@ class ErrorStrategyAuthenticate(ErrorStrategy):
         pass
 
     def _handle_8002(self, error, session, *args, **kwargs):
-        logger.info("Catched 8002, incorrect credentials.")
+        logger.info("Caught 8002, incorrect credentials.")
         raise API8002Error(error)
 
 
 class ErrorStrategyRefresh(ErrorStrategy):
     def _handle_409(self, error, session, *args, **kwargs):
         logger.info(
-            "Catched 409 error, possible race condition,"
+            "Caught 409 error, possible race condition,"
             "retry with error handling."
         )
         return self._call_without_error_handling(session, *args, **kwargs)
 
     def _handle_10013(self, error, session, *args, **kwargs):
-        logger.info("Catched 10013 error, session invalid.")
+        logger.info("Caught 10013 error, session invalid.")
         raise APISessionIsNotValidError(error)
 
     def _handle_400(self, error, session, *args, **kwargs):
-        logger.info("Catched 400 error, session invalid.")
+        logger.info("Caught 400 error, session invalid.")
         raise APISessionIsNotValidError(error)
 
     def _handle_422(self, error, session, *args, **kwargs):
-        logger.info("Catched 422 error, session invalid.")
+        logger.info("Caught 422 error, session invalid.")
         raise APISessionIsNotValidError(error)
 
 
@@ -926,7 +926,7 @@ class APISession:
             logger.info("Unable to fetch new ip: {}".format(e))
             response = {}
         except: # noqa
-            logger.info("Unknown error occured. Either there is no connection or API is blocked.")
+            logger.info("Unknown error occurred. Either there is no connection or API is blocked.")
             response = {}
 
         from ..location import CurrentLocation
@@ -963,7 +963,7 @@ class APISession:
         except: # noqa
             active_connection = None
             logger.info(
-                "Error occured while trying to fetch VPN connection."
+                "Error occurred while trying to fetch VPN connection."
             )
 
         if not active_connection:

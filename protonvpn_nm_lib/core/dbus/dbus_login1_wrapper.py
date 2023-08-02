@@ -93,7 +93,7 @@ class Login1UnitWrapper:
         """Get properties from user/self object.
 
         Returns:
-            dict: with user proprties
+            dict: with user properties
         """
         logger.info("Get user/self properties")
         prop_iface = self.__dbus_wrapper.get_proxy_object_properties_interface(

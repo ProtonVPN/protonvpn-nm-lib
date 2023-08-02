@@ -116,7 +116,7 @@ class BugReport(metaclass=Singleton):
     def __format_entry(self, entry):
         """Format log entry.
 
-        It will also remove the time in epoch and replace it by human redeable time.
+        It will also remove the time in epoch and replace it by human readable time.
 
         Args:
             entry (dict): entry containing journalctl data
@@ -139,7 +139,7 @@ class BugReport(metaclass=Singleton):
 # Code snippets below were fetched from https://github.com/newvem/pytz
 # Since the project is not available on all distro repos (that we support),
 # only relevant parts of the code were imported.
-# Some modifications had to be made to accomodate interoperability.
+# Some modifications had to be made to accommodate interoperability.
 
 
 class BaseTzInfo(tzinfo):

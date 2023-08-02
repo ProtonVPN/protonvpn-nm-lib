@@ -30,7 +30,7 @@ class ProtonVPNReconnector:
         for ProtonVPNReconnector
         max_attempts (int): Maximum number of attempts ofreconnection VPN
         session on failures
-        param delay (int): Miliseconds to wait before reconnecting VPN
+        param delay (int): Milliseconds to wait before reconnecting VPN
 
     """
     def __init__(self, virtual_device_name, loop, max_attempts=100, delay=5000): # noqa
@@ -220,7 +220,7 @@ class ProtonVPNReconnector:
                 killswitch.manage(
                     KillSwitchActionEnum.POST_CONNECTION
                 )
-                logger.info("Running killswitch post-conneciton mode")
+                logger.info("Running killswitch post-connection mode")
 
         elif (
             state == VPNConnectionStateEnum.DISCONNECTED
@@ -293,7 +293,7 @@ class ProtonVPNReconnector:
             vpn_interface (dbus.Proxy): proxy interface to vpn connection
         """
         logger.info(
-            "Setting up Proton VPN connecton: {} {}".format(
+            "Setting up Proton VPN connection: {} {}".format(
                 active_connection, vpn_interface
             )
         )
