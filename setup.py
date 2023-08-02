@@ -11,7 +11,7 @@ Proton VPN NetworkManager library for Linux clients.
 setup(
     name="protonvpn-nm-lib",
     version=APP_VERSION,
-    packages=find_packages(),
+    packages=find_packages(exclude=["tests", "tests.*"]),
     description="Proton VPN NetworkManager Linux library",
     author="Proton Technologies AG",
     author_email="contact@protonvpn.com",
