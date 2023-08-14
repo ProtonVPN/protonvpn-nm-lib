@@ -24,6 +24,12 @@ class SubprocessWrapper:
     DEVNULL = _subprocess.DEVNULL
 
     @staticmethod
+    def is_flatpak():
+        """Checks if it's in the Flatpak sandbox environment.
+        """
+        return os.path.isfile("/.flatpak-info")
+
+    @staticmethod
     def is_root_owned(path):
         stat_info = os.stat(path)
         return stat_info.st_uid == 0 and stat_info.st_gid == 0
@@ -47,7 +53,8 @@ class SubprocessWrapper:
         for path in os.environ.get('PATH', '').split(os.path.pathsep):
             if not os.path.isdir(path):
                 continue
-            if not self.is_root_owned(path):
+            # Inside a Flatpak, the binary is owned by the user instead of the root user. But it's read-only and secure.
+            if not SubprocessWrapper.is_flatpak() and not self.is_root_owned(path):
                 continue
 
             # Check for all the binaries that we haven't matched yet
@@ -58,7 +65,8 @@ class SubprocessWrapper:
                 if not os.path.isfile(binary_path_candidate):
                     continue
 
-                if not self.is_root_owned(binary_path_candidate):
+                # Inside a Flatpak, the binary is owned by the user instead of the root user. But it's read-only and secure.
+                if not self.is_flatpak() and not self.is_root_owned(binary_path_candidate):
                     continue
 
                 # We're happy with that one, store it
