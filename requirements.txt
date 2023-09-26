@@ -5,3 +5,4 @@ keyring
 PyGObject
 Jinja2
 distro
+dbus-python
