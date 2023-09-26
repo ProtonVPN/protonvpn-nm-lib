@@ -145,6 +145,6 @@ class ExecutionEnvironment(metaclass=Singleton):
             import distro
             distribution, version, _ = distro.linux_distribution()
         except ImportError:
-            distribution, version = "Linux", "unknown distribution", "unknown version"
+            distribution, version, _ = "Linux", "unknown version", "unknown codename"
 
         return "ProtonVPN/{} (Linux; {}/{})".format(APP_VERSION, distribution, version)
